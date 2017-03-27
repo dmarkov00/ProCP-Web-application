@@ -3,7 +3,6 @@ body {
     line-height: 2;
     color: #818181;
 }
-
 h1{
     font-weight: bolder;
 }
@@ -45,6 +44,7 @@ h4 {
     font-size:20px;
 }
 #how h1{color:#303030;}
+.thumbnail p{line-height: 200%;}
 .bg-grey {
     background-color: #f6f6f6;
 }
@@ -195,7 +195,6 @@ footer .glyphicon {
     .logo {
         font-size: 150px;
     }
-
     .jumbotron
     {
         padding-top:60px;
