@@ -44,6 +44,18 @@ h4 {
     font-size:20px;
 }
 #how h1{color:#303030;}
+#how {
+    padding-top:10%;
+}
+#who{
+    padding-top:7%;
+}
+.images{
+    width:400px;
+    height: 300px;
+    margin-right: auto;
+    margin-left: auto;
+}
 .thumbnail p{line-height: 200%;}
 .bg-grey {
     background-color: #f6f6f6;
@@ -201,5 +213,12 @@ footer .glyphicon {
     }
     .jumbotron h1{
         font-size:3em;
+    }
+    #who{
+        padding-top:100px;
+    }
+    .images{
+        width:200px;
+        height:150px;
     }
 }
