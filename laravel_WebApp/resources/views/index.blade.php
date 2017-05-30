@@ -318,11 +318,12 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
         </div>
 
         <div class="user_register">
-            <form>
-                <label>Full Name</label> <input type="text"><br>
-                <label>Email Address</label> <input type="email"><br>
-                <label>Password</label> <input type="password"><br>
-                <label>Confirm Password</label> <input type="password"><br>
+            <form action="/register" method="post" name="registerForm">
+                {{ csrf_field() }}
+                <label>Full Name</label> <input type="text" name="name"><br>
+                <label>Email Address</label> <input type="email" name="email"><br>
+                <label>Password</label> <input type="password" name="password"><br>
+                <label>Confirm Password</label> <input type="password" name="password_confirmation"><br>
 
 
                 <div class="action_btns">
@@ -331,7 +332,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
                     </div>
 
                     <div class="one_half last">
-                        <a class="btn btn_blue" href="#">Register</a>
+                        <a class="btn btn_blue" action="{{url('/register')}}" onclick="document.registerForm.submit()" >Register</a>
                     </div>
                 </div>
             </form>
