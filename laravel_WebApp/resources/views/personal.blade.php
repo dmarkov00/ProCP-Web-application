@@ -45,6 +45,8 @@
 
 <!-- Container (Services Section) -->
 <div id="stats" class="container-fluid text-center">
+    @if(isset($response->companyName))
+
     <div class="container">
         <h1>All deliveries. Filter with <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
         <div class="row">
@@ -95,7 +97,11 @@
             </div>
         </div>
     </div>
+        @else
+        <h1>Please register a company to see route information</h1>
+    @endif
 </div>
+
 
 <!--this script makes use of the external leanModal plugin-->
 <script>$("#modal_trigger").leanModal({top : 70, overlay : 0.6, closeButton: ".modal_close" });</script>
@@ -103,7 +109,7 @@
 <!--All popup modals-->
 <div id="modal" class="popupContainer" style="display:none;">
     <header class="popupHeader">
-        <span class="header_title">Login</span>
+        <span class="header_title">Download Application</span>
         <span class="modal_close"><i class="fa fa-times"></i></span>
     </header>
 

@@ -19,6 +19,12 @@
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+@if(isset($exceptionmsg))
+    <script>
+        console.log("{{$exceptionmsg}}");
+        alert("{{$exceptionmsg}}");
+    </script>
+@endif
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -298,11 +304,11 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
                 </div>
             </div>
         </div>
-
         <div class="user_login">
-            <form>
-                <label>Email / Username</label> <input type="text"><br>
-                <label>Password</label> <input type="password"><br>
+            <form action="/login" method="post" name="loginForm">
+                {{ csrf_field() }}
+                <label>Email</label> <input type="text" name="email"><br>
+                <label>Password</label> <input type="password" name="password"><br>
 
                 <div class="action_btns">
                     <div class="one_half">
@@ -310,7 +316,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
                     </div>
 
                     <div class="one_half last">
-                        <a class="btn btn_blue" href="#">Login</a>
+                        <a class="btn btn_blue" action="{{url('/login')}}" onclick="document.loginForm.submit()">Login</a>
                     </div>
                 </div>
             </form>
