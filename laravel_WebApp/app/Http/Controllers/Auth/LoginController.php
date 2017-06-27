@@ -20,9 +20,9 @@ class LoginController extends Controller
     |
     */
 
-    public function toPersonal($response)
+    public function toPersonal($response, $routesresponse)
     {
-        return view('personal', ['response' => $response]);
+        return view('personal', ['response' => $response, 'routesresponse' => $routesresponse]);
     }
 
     /**
@@ -43,7 +43,13 @@ class LoginController extends Controller
                 ]]);
             $response = json_decode($res->getBody());
             Log::info($res->getBody());
-            return $this->toPersonal($response);
+
+            $routes= $client->request('GET', 'http://127.0.0.1:8000/api/routes', [
+                'headers' => ['api_token' => /*'6UhcQUtcEuE2HXdUM1crQtV9RQQDI6t5IvWVkWcTTFxbc7rtjXz5Od77cqba'*/ $response->api_token]]);
+            Log::info($routes->getBody());
+            $routesresponse = json_decode($routes->getBody());
+
+            return $this->toPersonal($response, $routesresponse);
         }
         catch(RequestException $e){
             //unsuccessful login message

@@ -328,6 +328,9 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
                 {{ csrf_field() }}
                 <label>Full Name</label> <input type="text" name="name"><br>
                 <label>Email Address</label> <input type="email" name="email"><br>
+                {{--The next two labels will be available after we figure out the controller issue--}}
+                {{--<label>Company Name</label> <input type="text" name="companyName"><br>--}}
+                {{--<label>Address</label> <input type="text" name="address"><br>--}}
                 <label>Password</label> <input type="password" name="password"><br>
                 <label>Confirm Password</label> <input type="password" name="password_confirmation"><br>
 

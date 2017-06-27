@@ -31,9 +31,9 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-    public function toPersonal($response)
+    public function toPersonal($response/*, $routesresponse*/)
     {
-        return view('personal', ['response' => $response]);
+        return view('personal', ['response' => $response/*, 'routesresponse' => $routesresponse*/]);
     }
 
     /**
@@ -48,6 +48,7 @@ class RegisterController extends Controller
     {
 
         $client = new Client();
+        $client2 = new Client();
         try{
         $res = $client->request('POST', 'http://127.0.0.1:8000/api/register', [
             'form_params' => [
@@ -58,7 +59,25 @@ class RegisterController extends Controller
             ]]);
         $response = json_decode($res->getBody());
         Log::info($res->getBody());
-        return $this->toPersonal($response);
+//          Company assignment crashed in the last day and couldn't fix it
+//        $compres= $client->request('POST', 'http://127.0.0.1:8000/api/companies', [
+//            'headers' => ['api_token' => 'VyQayHiGQIazlxaPPFcKgk1b2KDrVU9dVRAOETmlO9LD4euueAibqJ5LSbjY'],
+//            'form_params' => [
+//                'address' => $data->address,
+//                'companyName' => $data->companyName,
+//            ]]);
+//            $compresponse = json_decode($compres->getBody());
+//            Log::info($compres->getBody());
+
+            //routes will function only after company is fixed
+//            $routes= $client2->request('GET', 'http://127.0.0.1:8000/api/routes', [
+//                'headers' => ['api_token' => /*'6UhcQUtcEuE2HXdUM1crQtV9RQQDI6t5IvWVkWcTTFxbc7rtjXz5Od77cqba'*/ $response->api_token]]);
+//            Log::info($routes->getBody());
+//            $routesresponse = json_decode($routes->getBody());
+
+
+
+        return $this->toPersonal($response /*$routesresponse*/);
         }
         catch(RequestException $e){
             //unsuccessfull registration message

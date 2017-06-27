@@ -32,7 +32,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a id="modal_trigger" href="#modal">DOWNLOAD APP</a></li>
                 <li><a href="#stats">STATISTICS</a></li>
-                <li><a href="#logout" >Logout</a></li>
+                <li><a href="/" >Logout</a></li>
             </ul>
         </div>
     </div>
@@ -48,12 +48,12 @@
     @if(isset($response->companyName))
 
     <div class="container">
-        <h1>All deliveries. Filter with <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
+        <h1>All routes. Filter with <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Developers</h3>
+                        <h3 class="panel-title">Routes</h3>
                         <div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 								<i class="glyphicon glyphicon-filter"></i>
@@ -61,36 +61,26 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                        <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Routes" />
                     </div>
                     <table class="table table-hover" id="dev-table">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Date</th>
-                            <th>Driver</th>
-                            <th>Route</th>
+                            <th>Distance</th>
+                            <th>Cost</th>
+                            <th>Time</th>
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach ($routesresponse as $route)
                         <tr>
-                            <td>1</td>
-                            <td>27/05</td>
-                            <td>John</td>
-                            <td>Paris-Eindhoven-Amsterdam</td>
+                            <td>{{$route->id}}</td>
+                            <td>{{$route->est_distance}}</td>
+                            <td>{{$route->est_cost}}</td>
+                            <td>{{$route->est_time_driving}} min</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>27/05</td>
-                            <td>Ivan</td>
-                            <td>Paris-Eindhoven-Amsterdam</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>27/05</td>
-                            <td>Koko</td>
-                            <td>Paris-Eindhoven-Amsterdam</td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -122,7 +112,7 @@
             </div>
 
             <div class="action_btns">
-                <a class="btn downloadbtn" href="Test_Application.txt" download="Application">Download Application</a>
+                <a class="btn downloadbtn" href="SetupLoadSimulation.rar" download="Application.rar">Download Application</a>
             </div>
         </div>
 
